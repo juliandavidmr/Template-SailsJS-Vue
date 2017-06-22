@@ -63,10 +63,12 @@
   "scripts": {
     "debug": "node debug app.js",
     "start": "node app.js",    
-    "copy:dist": "cd src && cpx dist/**/*.{html,png,jpg,css,js,map} ../assets/js/",
+    "copy:dist:js": "cd src && cpx dist/**/*.{js,js.map} ../assets/js/",
+    "copy:dist:css": "cd src && cpx dist/**/*.{css,css.map} ../assets/css/",
+    "copy:dist:img": "cd src && cpx dist/**/*.{png,jpg,ico} ../assets/images/",
     "dev": "cd src && node build/dev-server.js",
     "build": "cd src && node build/build.js",
-    "prestart": "npm run build && npm run copy:dist && echo \"Files copied...\""
+    "prestart": "npm run build && npm run copy:dist:js && npm run copy:dist:css && npm run copy:dist:img && echo \"Files copied...\""
   },
   "main": "app.js",
   "repository": {
